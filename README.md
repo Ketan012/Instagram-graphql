@@ -1,2 +1,2 @@
 # Instagram-graphql
-Instagram Graphql end.
+Instagram Apollo Graphql end.
