@@ -1,0 +1,10 @@
+type User{
+    data: UserData,
+    status: String,
+    error: String
+}
+
+type UserData{
+    username: String,
+    email: String
+}
