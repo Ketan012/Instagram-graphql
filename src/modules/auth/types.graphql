@@ -1,10 +1,11 @@
-type User{
-    data: UserData,
+type BooleanResponse{
+    data: String,
     status: String,
     error: String
 }
 
-type UserData{
-    username: String,
-    email: String
+type VerifyEmailResponse{
+    data: Boolean,
+    status: String,
+    error: String
 }

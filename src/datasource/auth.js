@@ -8,8 +8,28 @@ class AuthAPI extends RESTDataSource{
     }
 
     async signUp(args){
-        let user = this.post('api/v1/auth/signup', args);
-        return user;
+        let response = this.post(`api/v1/auth/signup`, args);
+        return response;
+    }
+
+    async sendMail(args){
+        let response = this.get(`api/v1/auth/sendmail/email/${args.isReset}/${args.email}`);
+        return response;
+    }
+
+    async sendSMS(args){
+        let response = this.get(`api/v1/auth/verificationcode/phone/${args.phone}`);
+        return response;
+    }
+
+    async login(args){
+        let response = this.post(`api/v1/auth/login`, args);
+        return response;
+    }
+
+    async verifyEmail(args){
+        let response = this.get(`api/v1/auth/verifyemail/${args.email}`);
+        return response;
     }
 }
 
