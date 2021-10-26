@@ -4,6 +4,16 @@ type BooleanResponse{
     error: String
 }
 
+type LoginResponse{
+    data: Login,
+    status: String,
+    error: String
+}
+
+type Login{
+    _id: String
+    token: String
+}
 type VerifyEmailResponse{
     data: Boolean,
     status: String,

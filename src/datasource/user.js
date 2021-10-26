@@ -9,7 +9,7 @@ class UserAPI extends RESTDataSource{
     }
 
     async getAllUser(){
-        let response = await this.get(`api/v1/user`);
+        let response = await this.get(`api/v1/user/users`);
         return response;
     }
 }

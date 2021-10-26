@@ -2,7 +2,7 @@ type Mutation{
     signup(username: String!, displayname: String!, email: String!, password: String!, isPrivate: Boolean!): BooleanResponse
     sendMail(email: String!, isReset: Boolean!): BooleanResponse
     sendSMS(countryCode: String!, phone: String!): BooleanResponse
-    login(username: String!, password: String!): BooleanResponse
+    login(username: String!, password: String!): LoginResponse
     verifyEmail(email: String!): VerifyEmailResponse
 }
 

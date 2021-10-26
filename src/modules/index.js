@@ -24,20 +24,35 @@ const options = {
     context: ({req})=>{
         const token = req.headers.authorization || '';
         const SECRET = 'SECRET';
-        
+
         if(token){
-            const user = jwt.verify(token.split(' ')[1], SECRET, option)
-            if(user){
-              console.log(user);
-              return {user : user}
-            }
-            else{
-              console.log('authentication token is not proper please change it');
-              return {user : 'authentication token is not proper please change it'}
+            const user = jwt.verify(token.split(' ')[1], SECRET)
+            if (user) {
+              return {
+                user: {
+                  data: user,
+                  status: "success",
+                  error: null,
+                },
+              };
+            } else {
+              return {
+                user: {
+                  data: null,
+                  status: "error",
+                  error: "token is not valid.",
+                },
+              };
             }
           }
             else{
-            return {user : null}
+            return {
+              user: {
+                data: null,
+                status: "error",
+                error: "authorization token is not provided.",
+              },
+            };
           }
     }
 }

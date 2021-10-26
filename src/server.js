@@ -2,7 +2,7 @@ const http = require('http');
 const { ApolloServer } = require('apollo-server-express');
 const cors = require('cors');
 const configurations = require('./config/configurations');
-
+const expressJwt = require('express-jwt')
 class Server{
     constructor(express){
         this.express = express;
@@ -18,6 +18,13 @@ class Server{
 
         this.app.use(cors());
         this.app.use(this.express.json());
+        const auth  = expressJwt({
+                secret : 'SECRET',
+                userProperty: "auth",
+                algorithms: ['HS256'],
+                credentialsRequired: false
+            });
+        this.app.use(auth);
         const { app } = this;
         this.server.applyMiddleware({ app });
     }
