@@ -25,33 +25,13 @@ const options = {
         const token = req.headers.authorization || '';
         const SECRET = 'SECRET';
 
+        // console.log("token here: ", token)
         if(token){
-            const user = jwt.verify(token.split(' ')[1], SECRET)
-            if (user) {
-              return {
-                user: {
-                  data: user,
-                  status: "success",
-                  error: null,
-                },
-              };
-            } else {
-              return {
-                user: {
-                  data: null,
-                  status: "error",
-                  error: "token is not valid.",
-                },
-              };
-            }
+            return {user: token};
           }
             else{
             return {
-              user: {
-                data: null,
-                status: "error",
-                error: "authorization token is not provided.",
-              },
+              user: "authorization token is not provided.",
             };
           }
     }

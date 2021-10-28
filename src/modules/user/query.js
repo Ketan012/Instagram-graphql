@@ -1,10 +1,10 @@
 const Query = {
-    getAllUser: (root, agrs, context, info) => {
+    getAllUser: (root, args, context, info) => {
         try {
-            if(context.user.status === 'error'){
-                return context.user;
-            }
-            let response = context.dataSources.userAPI.getAllUser();
+            // if(context.user.status === 'error'){
+            //     return context.user;
+            // }
+            let response = context.dataSources.userAPI.getAllUser(args);
             return response;
         } catch (error) {
             return {
