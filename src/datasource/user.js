@@ -13,8 +13,8 @@ class UserAPI extends RESTDataSource{
         request.headers.set('Authorization', this.context.user)
     }
 
-    async getAllUser(){
-        let response = await this.get(`api/v1/user`);
+    async getAllUser(args){
+        let response = await this.get(`api/v1/user/users/${args.id}`);
         return response;
     }
 
