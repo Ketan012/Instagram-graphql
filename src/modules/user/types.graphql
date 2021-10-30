@@ -1,3 +1,9 @@
+type BooleanResponse{
+    data: String,
+    status: String,
+    error: String
+}
+
 type User{
     _id: ID!,
     username: String,
@@ -5,8 +11,24 @@ type User{
     email: String,
 }
 
+type Buffer{
+    buffer: String,
+    contentType: String,
+}
+
+type Profile{
+    profile: Buffer,
+    userId: String,
+}
+
 type Users{
     data: [User],
+    status: String,
+    error: String
+}
+
+type UserProfile{
+    data: Profile,
     status: String,
     error: String
 }

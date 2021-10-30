@@ -1,3 +1,8 @@
 type Query{
     getAllUser(id: String): Users
+    getUserProfile(id: String): UserProfile
+}
+
+type Mutation{
+    deleteUserProfile(id: String): BooleanResponse
 }

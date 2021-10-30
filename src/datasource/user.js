@@ -10,12 +10,21 @@ class UserAPI extends RESTDataSource{
     }
 
     willSendRequest(request){
-        request.headers.set('Authorization', `${this.context.user}`);
+        request.headers.set('Authorization', this.context.user)
     }
-    // TODO: add authorization header here 
 
-    async getAllUser(args){
-        let response = await this.get(`api/v1/user/users/${args.id}`);
+    async getAllUser(){
+        let response = await this.get(`api/v1/user`);
+        return response;
+    }
+
+    async getUserProfile(args){
+        let response = await this.get(`api/v1/user/userprofile/${args.id}`);
+        return response;
+    }
+
+    async deleteUserProfile(args){
+        let response = await this.delete(`api/v1/user/userprofile/${args.id}`);
         return response;
     }
 }

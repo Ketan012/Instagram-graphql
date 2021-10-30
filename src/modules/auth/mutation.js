@@ -1,4 +1,4 @@
-const constants = require('./../../Utils/Constants');
+const constants = require("./../../Utils/Constants");
 const Mutation = {
   signup: (root, args, context, info) => {
     try {
@@ -11,14 +11,25 @@ const Mutation = {
 
   sendMail: async (root, args, context, info) => {
     try {
-    if(!constants.isValidEmail.test(args.email)){
+      const { email, isReset } = args;
+
+      if (!email) {
         return {
-            data: null,
-            status: 'error',
-            error: 'Email is not valid.'
-        }
-    }
-      args.isReset = args.isReset ? 1 : 0;
+          data: null,
+          status: "error",
+          error: "Email is required.",
+        };
+      }
+
+      if (!constants.isValidEmail.test(email)) {
+        return {
+          data: null,
+          status: "error",
+          error: "Email is not valid.",
+        };
+      }
+
+      isReset = isReset ? 1 : 0;
       let response = context.dataSources.authAPI.sendMail(args);
       return response;
     } catch (error) {
@@ -30,16 +41,16 @@ const Mutation = {
     try {
       if (args.countryCode.length !== 2) {
         return {
-            data: null,
-            status: "error",
-            error: "Country code must be of 2 digit only.",
+          data: null,
+          status: "error",
+          error: "Country code must be of 2 digit only.",
         };
       }
       if (args.phone.length !== 10) {
         return {
-            data: null,
-            status: "error",
-            error: "Phone number must be of 10 digit only.",
+          data: null,
+          status: "error",
+          error: "Phone number must be of 10 digit only.",
         };
       }
       args.phone = args.countryCode + args.phone;
@@ -52,8 +63,8 @@ const Mutation = {
 
   login: (root, args, context, info) => {
     try {
-        let response = context.dataSources.authAPI.login(args);
-        return response;
+      let response = context.dataSources.authAPI.login(args);
+      return response;
     } catch (error) {
       return {
         data: null,
@@ -64,17 +75,28 @@ const Mutation = {
   },
 
   verifyEmail: (root, args, context, info) => {
-      try {
-          let response = context.dataSources.authAPI.verifyEmail(args);
-          return response;
-      } catch (error) {
+    try {
+
+      const { email } = args;
+
+      if(!email){
         return {
-            data: null,
-            status: "error",
-            error: error,
-          };
+          data: null,
+          status: "error",
+          error: "Email is required.",
+        };
       }
-  }
+
+      let response = context.dataSources.authAPI.verifyEmail(args);
+      return response;
+    } catch (error) {
+      return {
+        data: null,
+        status: "error",
+        error: error,
+      };
+    }
+  },
 };
 
 module.exports = Mutation;
