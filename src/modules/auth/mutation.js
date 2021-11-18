@@ -11,7 +11,7 @@ const Mutation = {
 
   sendMail: async (root, args, context, info) => {
     try {
-      const { email, isReset } = args;
+      let { email, isReset } = args;
 
       if (!email) {
         return {
