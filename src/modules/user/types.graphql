@@ -32,3 +32,33 @@ type UserProfile{
     status: String,
     error: String
 }
+
+type UserFollowers{
+    data: FollowerData,
+    status: String,
+    error: String
+}
+
+type FollowerData{
+    data: [Followers]
+    count: String
+}
+
+type Followers{
+    follower_id: String,
+}
+
+type UserFollowings{
+    data: FollowingData,
+    status: String,
+    error: String
+}
+
+type FollowingData{
+    data: [Followings]
+    count: String
+}
+
+type Followings{
+    following_id: String,
+}

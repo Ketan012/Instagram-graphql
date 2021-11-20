@@ -1,5 +1,5 @@
 const Mutation = {
-    deleteUserProfile: (root, args, context, _info) => {
+    deleteUserProfile: (root, args, context, info) => {
         try {
             const { id } = args;
 
@@ -23,7 +23,7 @@ const Mutation = {
         }
     },
 
-    userFollowing: (root, args, context, _info) => {
+    userFollowing: (root, args, context, info) => {
         try {
             const { id } = args;
 
@@ -46,7 +46,7 @@ const Mutation = {
         }
     },
 
-    userFollower: (root, args, context, _info) => {
+    userFollower: (root, args, context, info) => {
         try {
             const { id } = args;
 

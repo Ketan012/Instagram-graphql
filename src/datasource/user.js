@@ -37,6 +37,16 @@ class UserAPI extends RESTDataSource{
         let response = await this.post(`api/v1/user/userFollowers/${args.id}`, args);
         return response;
     }
+
+    async getFollowings(args){
+        let response = await this.get(`api/v1/user/following/${args.id}/${args.userId}`);
+        return response;
+    }
+
+    async getFollowers(args){
+        let response = await this.get(`api/v1/user/follower/${args.id}/${args.userId}`);
+        return response;
+    }
 }
 
 module.exports = UserAPI;
