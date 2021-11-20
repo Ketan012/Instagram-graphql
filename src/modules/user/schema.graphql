@@ -5,4 +5,6 @@ type Query{
 
 type Mutation{
     deleteUserProfile(id: String): BooleanResponse
+    userFollowing(id: String, userId: String, following_id: String): BooleanResponse
+    userFollower(id: String, userId: String, follower_id: String): BooleanResponse
 }

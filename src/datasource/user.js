@@ -27,6 +27,16 @@ class UserAPI extends RESTDataSource{
         let response = await this.delete(`api/v1/user/userprofile/${args.id}`);
         return response;
     }
+
+    async userFollowing(args){
+        let response = await this.post(`api/v1/user/userFollowings/${args.id}`, args);
+        return response;
+    }
+
+    async userFollower(args){
+        let response = await this.post(`api/v1/user/userFollowers/${args.id}`, args);
+        return response;
+    }
 }
 
 module.exports = UserAPI;
