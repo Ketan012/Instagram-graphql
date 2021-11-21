@@ -90,6 +90,29 @@ const Mutation = {
                 error: 'something went wrong.'
             }
         }
+    },
+
+    updateUserBio: (root, args, context, info) => {
+        try {
+            const { id } = args;
+
+            if(!id){
+                return {
+                        data: null,
+                        status: 'error',
+                        error: 'Id is required.'
+                    }
+                }
+
+            let response = context.dataSources.userAPI.updateUserBio(args);
+            return response;
+        } catch (error) {
+            return {
+                data: null,
+                status: 'error',
+                error: 'something went wrong.'
+            }
+        }
     }
 }
 

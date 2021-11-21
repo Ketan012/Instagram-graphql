@@ -18,6 +18,11 @@ class UserAPI extends RESTDataSource{
         return response;
     }
 
+    async getUserData(args){
+        let response = await this.get(`api/v1/user/${args.id}`);
+        return response;
+    }
+
     async getUserProfile(args){
         let response = await this.get(`api/v1/user/userprofile/${args.id}`);
         return response;
@@ -50,6 +55,11 @@ class UserAPI extends RESTDataSource{
 
     async manageAccountPrivacy(args){
         let response = await this.post(`api/v1/user/accountprivacy/${args.id}`, args);
+        return response;
+    }
+
+    async updateUserBio(args){
+        let response = await this.put(`api/v1/user/update/bio/${args.id}`, args);
         return response;
     }
 }

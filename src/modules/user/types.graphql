@@ -9,6 +9,9 @@ type User{
     username: String,
     displayname: String,
     email: String,
+    phone: String,
+    bio: String,
+    isPrivate: Boolean,
 }
 
 type Buffer{
@@ -61,4 +64,10 @@ type FollowingData{
 
 type Followings{
     following_id: String,
+}
+
+type UserData{
+    data: User,
+    status: String,
+    error: String
 }
