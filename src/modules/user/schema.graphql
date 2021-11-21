@@ -1,12 +1,13 @@
 type Query{
-    getAllUser(id: String): Users
-    getUserProfile(id: String): UserProfile
-    getUserFollowers(id: String, userId: String): UserFollowers
-    getUserFollowings(id: String, userId: String): UserFollowings
+    getAllUser(id: String!): Users
+    getUserProfile(id: String!): UserProfile
+    getUserFollowers(id: String!, userId: String!): UserFollowers
+    getUserFollowings(id: String!, userId: String!): UserFollowings
 }
 
 type Mutation{
     deleteUserProfile(id: String): BooleanResponse
-    userFollowing(id: String, userId: String, following_id: String): BooleanResponse
-    userFollower(id: String, userId: String, follower_id: String): BooleanResponse
+    userFollowing(id: String!, userId: String!, following_id: String!): BooleanResponse
+    userFollower(id: String!, userId: String!, follower_id: String!): BooleanResponse
+    manageAccountPrivacy(id: String!, isPrivate: Boolean!): BooleanResponse
 }
