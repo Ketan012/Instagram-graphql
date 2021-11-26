@@ -62,6 +62,11 @@ class UserAPI extends RESTDataSource{
         let response = await this.put(`api/v1/user/update/bio/${args.id}`, args);
         return response;
     }
+
+    async blockUser(args){
+        let response = await this.delete(`api/v1/user/block/${args.id}`, args);
+        return response;
+    }
 }
 
 module.exports = UserAPI;
