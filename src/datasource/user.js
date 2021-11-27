@@ -64,7 +64,7 @@ class UserAPI extends RESTDataSource{
     }
 
     async blockUser(args){
-        let response = await this.delete(`api/v1/user/block/${args.id}`, args);
+        let response = await this.delete(`api/v1/user/block/${args.id}/${args.blockUserId}`);
         return response;
     }
 }
