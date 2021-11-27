@@ -58,6 +58,11 @@ class UserAPI extends RESTDataSource{
         return response;
     }
 
+    async unFollowUser(args){
+        let response = await this.delete(`api/v1/user/unfollow/${args.id}/${args.unFollowUserId}`);
+        return response;
+    }
+
     async blockUser(args){
         let response = await this.delete(`api/v1/user/block/${args.id}/${args.blockUserId}`);
         return response;
