@@ -12,4 +12,5 @@ type Mutation{
     userFollower(id: String!, userId: String!, follower_id: String!): BooleanResponse
     manageAccountPrivacy(id: String!, isPrivate: Boolean!): BooleanResponse
     updateUserBio(id: String!, bio: String!): BooleanResponse
+    blockUser(id: String, blockUserId: String!): BooleanResponse
 }
