@@ -167,6 +167,29 @@ const Mutation = {
                 error: 'something went wrong.'
             }
         }
+    },
+
+    updateUserData: (root, args, context, info) => {
+        try {
+            const { userId } = args;
+
+        if(!userId){
+            return {
+                data: null,
+                status: "error",
+                error: "User id is required."
+            }
+        }
+
+        let response = context.dataSources.userAPI.updateUserdata(args);
+        return response;
+        } catch (error) {
+            return {
+                data: null,
+                status: 'error',
+                error: 'something went wrong.'
+            }
+        }
     }
 }
 
