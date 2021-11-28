@@ -13,4 +13,5 @@ type Mutation{
     updateUserBio(id: String!, bio: String!): BooleanResponse
     blockUser(id: String, blockUserId: String!): BooleanResponse
     unFollowUser(id: String, unFollowUserId: String): BooleanResponse
+    removeFollower(id: String, followerId: String): BooleanResponse
 }

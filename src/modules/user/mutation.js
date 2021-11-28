@@ -136,6 +136,37 @@ const Mutation = {
                 error: 'something went wrong.'
             }
         }
+    },
+
+    removeFollower: (root, args, context, info) => {
+        try {
+            const { id, followerId } = args;
+
+            if(!id){
+                return {
+                        data: null,
+                        status: 'error',
+                        error: 'Id is required.'
+                    }
+                }
+
+            if(!followerId){
+                return {
+                    data: null,
+                    status: 'error',
+                    error: 'Follower id is required.'
+                }
+            }
+
+            let response = context.dataSources.userAPI.removeFollower(args);
+            return response;
+        } catch (error) {
+            return {
+                data: null,
+                status: 'error',
+                error: 'something went wrong.'
+            }
+        }
     }
 }
 
