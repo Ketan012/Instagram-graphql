@@ -12,6 +12,7 @@ type Mutation{
     manageAccountPrivacy(id: String!, isPrivate: Boolean!): BooleanResponse
     updateUserBio(id: String!, bio: String!): BooleanResponse
     blockUser(id: String!, blockUserId: String!): BooleanResponse
+    unblockUser(id: String!, unblockUserId: String!): BooleanResponse
     unFollowUser(id: String!, unFollowUserId: String!): BooleanResponse
     removeFollower(id: String!, followerId: String!): BooleanResponse
     updateUserData(userId: String!, username: String!, displayname: String!, email: String!): BooleanResponse
