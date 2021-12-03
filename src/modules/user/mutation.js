@@ -115,6 +115,37 @@ const Mutation = {
         }
     },
 
+    unblockUser: (root, args, context, info) => {
+        try {
+            const { id, unblockUserId } = args;
+
+            if (!id) {
+              return {
+                data: null,
+                status: "error",
+                error: "Id is required.",
+              };
+            }
+
+            if (!unblockUserId) {
+              return {
+                data: null,
+                status: "error",
+                error: "Unblock user id is required.",
+              };
+            }
+
+            let response = context.dataSources.userAPI.unblockUser(args);
+            return response;
+        } catch (error) {
+            return {
+                data: null,
+                status: 'error',
+                error: 'something went wrong.'
+            }
+        }
+    },
+
     unFollowUser: (root, args, context, info) => {
         try {
             const { id } = args;
