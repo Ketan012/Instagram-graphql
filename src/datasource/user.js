@@ -82,6 +82,11 @@ class UserAPI extends RESTDataSource{
         let response = await this.put(`api/v1/user/update/data/${args.userId}`, args);
         return response;
     }
+
+    async searchUser(args){
+        let response = await this.get(`api/v1/user/search/${args.userId}?searchstring=${args.searchString}`);
+        return response;
+    }
 }
 
 module.exports = UserAPI;

@@ -113,6 +113,30 @@ const Query = {
                 error: error
             }
         }
+    },
+
+    searchUser: (root, args, context, info) => {
+        try {
+            const { userId } = args;
+
+            if(!userId){
+                return {
+                    data: null,
+                    status: 'error',
+                    error: 'userId is required.'
+                } 
+            }
+
+            let response = context.dataSources.userAPI.searchUser(args);
+            return response;
+            
+        } catch (error) {
+            return {
+                data: null,
+                status: 'error',
+                error: error
+            }
+        }
     }
 }
 
