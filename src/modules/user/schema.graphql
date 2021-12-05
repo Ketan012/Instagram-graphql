@@ -4,6 +4,7 @@ type Query{
     getUserProfile(id: String!): UserProfile
     getUserFollowers(id: String!, userId: String!): UserFollowers
     getUserFollowings(id: String!, userId: String!): UserFollowings
+    searchUser(userId: String!, searchString: String): Users
 }
 
 type Mutation{
