@@ -5,9 +5,10 @@ type BooleanResponse{
 }
 
 type User{
-    _id: ID!,
+    _id: String,
     username: String,
     displayname: String,
+    profile: String,
     email: String,
     phone: String,
     bio: String,
